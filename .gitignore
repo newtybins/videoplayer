@@ -1,0 +1,15 @@
+# Node.js
+node_modules
+
+# Project-specific files
+bin
+build
+debug.exe
+dist
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdkse
+.pnp.*
