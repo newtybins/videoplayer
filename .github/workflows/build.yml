@@ -39,7 +39,7 @@ jobs:
               run: npm run build:js
 
             - name: Build binary
-              run: npx pkg dist/index.js -o output.exe --scripts dist/**/*.js --targets node16-${{ matrix.platform }}-${{ matrix.arch }}
+              run: npx pkg . -o output.exe --targets node16-${{ matrix.platform }}-${{ matrix.arch }} --compress GZip
 
             - name: Upload
               uses: actions/upload-artifact@v2
