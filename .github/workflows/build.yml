@@ -8,6 +8,7 @@ on:
 
 jobs:
     build:
+        name: Build for ${{ matrix.platform }} (${{ matrix.arch }})
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -38,7 +39,7 @@ jobs:
               run: npm run build:js
 
             - name: Build binary
-              run: npx pkg dist/index.js -o output.exe --targets node16-${{ matrix.platform }}-${{ matrix.arch }}
+              run: npx pkg dist/index.js -o output.exe --scripts dist/**/*.js --targets node16-${{ matrix.platform }}-${{ matrix.arch }}
 
             - name: Upload
               uses: actions/upload-artifact@v2
